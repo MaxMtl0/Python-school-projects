@@ -1,0 +1,15 @@
+import sqlite3
+conn =sqlite3.connect("C:/Users/Max/Documents/pyzo/Base de donnée3.sq3")
+cur =conn.cursor()
+cur.execute("SELECT * FROM membres")
+for l in cur :
+    print(l)
+cur.execute("SELECT * FROM membres")
+L=list(cur)
+print(L)
+cur.execute("SELECT * FROM membres")
+L=cur.fetchall()
+print(L)
+cur.execute("INSERT INTO membres(age,nom,taille) VALUES(19,'Ricard',1.75)")
+cur.execute("UPDATE membres SET nom ='Gerart' WHERE nom='Ricard'")
+cur.execute("DELETE FROM membres WHERE nom='Gerart'")
